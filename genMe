@@ -1,0 +1,45 @@
+#!/usr/bin/python
+import sys,os, os.path
+sys.path.append("bin/")
+
+
+help = '''
+    =========================Payload Maker===========================
+    use ./genMe [op1] [op2] [op3] [op4]
+    op1 = Os that youre going to make a payload for
+    op2 = Type of payload http, https or tcp
+    op3 = desired port for the payload
+    op4 = yes or no to execute the created script for msfconsole
+    example ./genMe android tcp 44555 yes
+            or
+    example ./genMe windows http 9876 n
+    '''
+
+try:
+    os1 = sys.argv[1]
+    pay = sys.argv[2]
+    port = sys.argv[3]
+    y = sys.argv[4]
+    os.system("rm back/pName.txt")
+    os.system("clear")
+    checkG = os.path.isfile("bin/generator.py")
+    if checkG == False:
+        os.system("cp back/generator.txt bin/generator.py")
+    checkM = os.path.isfile("bin/msconsole.py")
+    if checkM == False:
+        os.system("cp back/msconsole.txt bin/msconsole.py")
+    import  msconsole, generator
+    generator.start(os1,pay,port,y)
+    check = os.path.isfile("back/pName.txt")
+    if check == True:
+        file = open("back/pName.txt", "r")
+        name = file.readline()
+        file.close()
+        if y =="yes" or y == "y":
+            msconsole.make(os1,pay,port,name)
+        else:
+            msconsole.nMake(os1, pay, port, name)
+    else:
+        quit()
+except IndexError:
+    print(help)
