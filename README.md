@@ -2,7 +2,8 @@
 Payload generator for metasploit, using meterpreter
 
 # Errors
-> Chmod both genMe and build to supposedly not have any more erros
+> Chmod both genMe and build to supposedly not have any more errors
+
 > Only made for linux
 
 # Installing Metasploit
