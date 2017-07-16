@@ -20,3 +20,5 @@ Port - Pretty self explanatory, a port for the payload to listen on
 
 YesOrNo - choose yes or no to execute a msfconsole automated script for your payload(can also be written with y for yes and n for no)
 
+# Disclaimer
+As always I'm not responsible for your actions
